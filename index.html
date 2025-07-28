@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shanmukhi Sai Priya Sandaka - Cybersecurity Portfolio</title>
+  <meta name="description" content="Portfolio of Shanmukhi Sai Priya Sandaka - Cybersecurity Consultant & Cloud Security Specialist"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React + Babel -->
+  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+
+  <!-- Animate on Scroll (AOS) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease infinite;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+  </style>
+</head>
+<body class="text-gray-900">
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    AOS.init();
+
+    const Section = ({ id, title, icon, children }) => (
+      <section id={id} className="py-20 px-4" data-aos="fade-up">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-10">{icon} {title}</h2>
+          {children}
+        </div>
+      </section>
+    );
+
+    const Card = ({ title, subtitle, children }) => (
+      <div className="bg-white/80 backdrop-blur-lg p-6 rounded-xl shadow-md mb-6">
+        <h3 className="text-xl font-semibold text-blue-900">{title}</h3>
+        {subtitle && <p className="text-gray-600 mt-1">{subtitle}</p>}
+        {children}
+      </div>
+    );
+
+    const NavBar = () => (
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur shadow z-50 py-3">
+        <div className="max-w-6xl mx-auto px-4 flex justify-center space-x-6 text-sm sm:text-base font-medium">
+          {["about", "experience", "education", "certifications", "skills"].map(link => (
+            <a href={`#${link}`} className="text-gray-700 hover:text-blue-700 capitalize" key={link}>{link}</a>
+          ))}
+        </div>
+      </nav>
+    );
+
+    const Header = () => (
+      <header className="bg-gradient-to-br from-blue-900 via-indigo-800 to-purple-800 text-white pt-28 pb-20 rounded-b-3xl shadow-xl text-center">
+        <img
+  src="saipriya.jpg"
+  alt="Shanmukhi Sai Priya Sandaka"
+  className="w-32 h-32 mx-auto rounded-full border-4 border-white shadow-lg mb-4"
+/>
+
+        <h1 className="text-4xl sm:text-5xl font-bold">Shanmukhi Sai Priya Sandaka</h1>
+        <p className="text-lg sm:text-xl mt-2 font-light">Cybersecurity Consultant | Cloud Security Specialist</p>
+        <div className="mt-4 flex justify-center space-x-6 text-sm sm:text-base">
+          <a href="mailto:saipriya.sandaka@gmail.com" className="hover:underline">📧 Email</a>
+          <a href="https://linkedin.com/in/shanmukhi-sai-priya-sandaka-b66391186/" target="_blank" className="hover:underline">🔗 LinkedIn</a>
+          <a href="https://creditio.com/users/shanmukhi-saipriya-sandaka.cab3fa3c" target="_blank" className="hover:underline">📁 Portfolio</a>
+        </div>
+      </header>
+    );
+
+    const About = () => (
+      <Section id="about" title="About Me" icon="👩‍💻">
+        <div className="max-w-3xl mx-auto bg-white/80 backdrop-blur-lg p-6 rounded-xl text-gray-800 shadow-md text-lg leading-relaxed">
+          <p>
+            Hello! I'm a passionate Cybersecurity Consultant with 5+ years of experience defending enterprise infrastructure using SIEM, EDR, and cloud security tools. I’m pursuing my Master’s in IT (Cybersecurity) from Florida Atlantic University and committed to building scalable and secure environments.
+          </p>
+          <p className="mt-4 italic text-blue-700 text-center">
+            “My mission is to secure what matters – people, systems, and trust.”
+          </p>
+        </div>
+      </Section>
+    );
+
+    const Experience = () => (
+      <Section id="experience" title="Professional Experience" icon="💼">
+        <Card title="Technical Consultant, Cybersecurity - IBM (GSOC Wood PLC)" subtitle="Dec 2021 – Dec 2023">
+          <ul className="list-disc list-inside text-gray-700 mt-2 space-y-1">
+            <li>Led SOC operations, log monitoring & incident response</li>
+            <li>Mentored Tier 1/2 analysts, improved detection rules</li>
+            <li>Used Azure Defender, CrowdStrike, QRadar</li>
+          </ul>
+        </Card>
+        <Card title="Associate Consultant, Cloud Security Analyst - Infosys" subtitle="Dec 2018 – Dec 2021">
+          <ul className="list-disc list-inside text-gray-700 mt-2 space-y-1">
+            <li>Managed SIEM operations (Azure Sentinel)</li>
+            <li>Responded to phishing, malware, and threat alerts</li>
+            <li>Built automation playbooks in Azure Logic Apps</li>
+          </ul>
+        </Card>
+      </Section>
+    );
+
+    const Education = () => (
+      <Section id="education" title="Education" icon="🎓">
+        <Card title="Master’s in IT (Cybersecurity)" subtitle="Florida Atlantic University — Ongoing" />
+        <Card title="B.Tech in Electronics & Communication" subtitle="JNTU, India — 2014–2018 | GPA: 3.25" />
+      </Section>
+    );
+
+    const Certifications = () => (
+      <Section id="certifications" title="Certifications" icon="📜">
+        <ul className="list-disc list-inside max-w-3xl mx-auto text-gray-700 text-base space-y-2">
+          {[
+            "SC-200: Microsoft Security Operations Analyst",
+            "AZ-500: Azure Security Engineer",
+            "ACE-S: Applied Cyber Security Essentials (Purdue)",
+            "AZ-900: Azure Fundamentals",
+            "SC-500: Security, Compliance, Identity Fundamentals",
+            "AWS Certified Cloud Practitioner",
+            "Splunk Fundamentals",
+            "CompTIA Security+ (2021)"
+          ].map(cert => <li key={cert}>{cert}</li>)}
+        </ul>
+      </Section>
+    );
+
+    const Skills = () => (
+      <Section id="skills" title="Technical Skills" icon="🛠️">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            ["☁️ Cloud", "AWS, Azure"],
+            ["🔍 SIEM", "Sentinel, QRadar, Splunk"],
+            ["🛡️ EDR", "CrowdStrike, Defender, Proofpoint"],
+            ["📘 Frameworks", "MITRE, NIST, Kill Chain"],
+            ["⚙️ Automation", "Azure Logic Apps"],
+            ["🚨 IR & Hunting", "Threat Intel, Playbooks"]
+          ].map(([title, desc]) => (
+            <div key={title} className="bg-white/90 rounded-xl shadow-md p-6 border hover:shadow-lg transition">
+              <h3 className="text-blue-900 font-semibold text-lg mb-1">{title}</h3>
+              <p className="text-sm text-gray-700">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+    );
+
+    const Footer = () => (
+      <footer className="bg-gray-100 text-center py-6 mt-10 text-sm text-gray-600">
+        &copy; 2025 Shanmukhi Sai Priya Sandaka. All rights reserved.
+      </footer>
+    );
+
+    const App = () => (
+      <React.StrictMode>
+        <NavBar />
+        <Header />
+        <About />
+        <Experience />
+        <Education />
+        <Certifications />
+        <Skills />
+        <Footer />
+      </React.StrictMode>
+    );
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+
+</body>
+</html>
